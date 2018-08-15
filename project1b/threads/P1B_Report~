@@ -1,0 +1,14 @@
+Bryan Warren
+Phillip Masterson
+
+Project 1B Report
+1. Both group members did equal share of the work. We met up and both worked on all the parts together, taking turns coding.
+
+2.
+Task 1: This task was pretty simple. We just use an array of Semaphore pointers and initialized each element in the array to point to a semaphore. StartRead and StartWrite use P() while endRead and EndWrite use V().
+
+Task 2: We looked at the Semaphore implementation for help on this one. Acquire is almost exactly like V, except we use a integer value to determine if the lock is busy or ready (0 if busy, 1 if ready). Another difference is that we have to make the owner = currenthread after it wakes up. Release is almost exactly like P, except we make value = 1, indicating the lock is ready. isheldbycurrenthread simply checks if the currentthread is the owner of the lock.
+
+Task 3: Wait checks if the lock is held by the current thread, disables interrupts, adds the currenthread to the waiting queue, releases the lock, puts the currentThread to sleep, renables interrupts, and the a new thread acquires the lock. 
+
+3. Compiling can be done with make
