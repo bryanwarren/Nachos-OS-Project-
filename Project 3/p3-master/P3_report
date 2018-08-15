@@ -1,0 +1,7 @@
+Project 3
+Bryan Warren
+Phillip Masterson
+
+1. MIPS instruction: lw. System calls: open, exec, create
+2. testvmfork.c can run smoothly because it never asks for memory. Other tests like testvm.c and testvmexec.c have buffers, while testvmfork.c does not. So, there is no page fault/page replacement even though the memory used by the test code exceeds the available memory size.
+3. All of the assignment is completed. For the first part of the swapPageIn function, we either look for an open space to place the page or we look for a page where the use bit is set (to replace it). If there is a free space for a page, we load the new page info into the space. If we find a space that is occupied, we overwrite the space with the new page. This involves setting the dirty bit to true. To find the next victim, we used the formula (nextVictim + 1) % NumPhysPages to circle back to the beginning if we reach the last page. 
